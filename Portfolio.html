@@ -1,0 +1,291 @@
+<!-- Portfolio Section -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-container">
+    <!-- Portfolio Image (top-left corner) -->
+    <img src="C:\Users\OBIDIENCE\Desktop\malama\myself111.jpeg" alt="Shepherd Malama" class="portfolio-img">
+
+    <h2 class="portfolio-heading">My Portfolio</h2>
+    <p class="portfolio-intro">
+      I am <strong>Shepherd Malama</strong> — Full Developer, Programmer, Software & Hardware Engineer, 
+      IT Specialist, and Fashion Model. With a Diploma in Computer System Engineering from 
+      <em>Northern Technical College</em>, I deliver professional services, projects, and contracts 
+      through negotiation-based pricing.
+    </p>
+
+    <div class="portfolio-details">
+      <ul>
+        <li><strong>Services:</strong> Software Development, Hardware Engineering, IT Consultancy, Fashion Modeling</li>
+        <li><strong>Education:</strong> Northern Technical College</li>
+        <li><strong>Phone:</strong> <a href="tel:0978262226">0978262226</a></li>
+        <li><strong>Location:</strong> Zambia</li>
+      </ul>
+    </div>
+
+    <div class="portfolio-call">
+      <button class="hire-btn" onclick="openModal()">Hire Me</button>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Contact Form -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>Contact Shepherd Malama</h3>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Your email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Your message" rows="5" required></textarea>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+    <!-- WhatsApp Direct Chat -->
+    <div class="whatsapp-contact">
+      <p>Or chat instantly via WhatsApp:</p>
+      <a href="https://wa.me/260978262226" target="_blank" class="whatsapp-btn">Message on WhatsApp</a>
+    </div>
+
+    <!-- Copy-to-Clipboard -->
+    <div class="copy-contact">
+      <p>Need my number quickly?</p>
+      <button onclick="copyNumber()" class="copy-btn">Copy Phone Number</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast">Number copied — Shepherd Malama</div>
+
+<style>
+/* Portfolio Styling */
+.portfolio {
+  background: #111;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.portfolio-heading {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 2.5em;
+  color: gold;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px goldenrod, 0 0 20px #FFD700;
+  animation: glow 2s infinite alternate;
+}
+
+.portfolio-intro {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.portfolio-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 30px;
+  max-width: 500px;
+  text-align: left;
+}
+
+.portfolio-details li {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+.hire-btn {
+  padding: 12px 25px;
+  background: gold;
+  color: #111;
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px gold, 0 0 30px goldenrod;
+}
+
+.hire-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #FFD700, 0 0 50px gold;
+}
+
+/* Portfolio Image Styling */
+.portfolio-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  box-shadow: 0 0 15px gold, 0 0 30px goldenrod;
+  transition: transform 0.8s ease-in-out;
+}
+
+.portfolio-img:hover {
+  transform: rotate(360deg);
+}
+
+/* Responsive Image */
+@media (max-width: 768px) {
+  .portfolio-img {
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    left: 10px;
+    box-shadow: 0 0 10px gold, 0 0 20px goldenrod;
+  }
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  background: #222;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  color: #fff;
+  box-shadow: 0 0 20px gold;
+  animation: bounceIn 0.6s ease;
+}
+
+.modal-content h3 {
+  color: gold;
+  margin-bottom: 20px;
+}
+
+.modal-content label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.modal-content input, 
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gold;
+  border-radius: 5px;
+  background: #111;
+  color: #fff;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: gold;
+  color: #111;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background: #FFD700;
+  box-shadow: 0 0 20px gold;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: gold;
+}
+
+/* WhatsApp Button */
+.whatsapp-contact {
+  margin-top: 20px;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #25D366;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px #25D366, 0 0 30px #128C7E;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #25D366, 0 0 50px #128C7E;
+}
+
+/* Copy Button */
+.copy-contact {
+  margin-top: 20px;
+}
+
+.copy-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: gold;
+  color: #111;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px gold;
+}
+
+.copy-btn:hover {
+  background: #FFD700;
+  box-shadow: 0 0 25px gold;
+}
+
+/* Toast Styling */
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  background: gold;
+  color: #111;
+  text-align: center;
+  border-radius: 30px;
+  padding: 12px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  box-shadow: 0 0 20px gold, 0 0 40px goldenrod;
+  font-weight: bold;
+}
+
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from { bottom: 0; opacity: 0; }
+  to { bottom: 30px; opacity: 1; }
+}
+
+@keyframes fadeout {
+  from { bottom: 30px; opacity: 1; }
+  to { bottom: 0; opacity: 0; }
+}
+
+@

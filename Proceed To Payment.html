@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malama+ Bank Payment Options</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: gold;
+      text-shadow: 0 0 10px gold;
+      animation: glowPulse 2s infinite;
+      margin-bottom: 30px;
+    }
+
+    .payment-options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .payment-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: gold;
+      color: #111;
+      padding: 20px;
+      font-size: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 12px gold;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      min-width: 240px;
+      max-width: 280px;
+    }
+
+    .payment-btn img {
+      height: 40px;
+      width: auto;
+      margin-bottom: 10px;
+    }
+
+    .payment-btn:hover {
+      background: #fff;
+      color: gold;
+      transform: translateY(-3px);
+    }
+
+    .details {
+      font-size: 0.9rem;
+      margin-top: 8px;
+      color: #333;
+      background: #fff;
+      padding: 6px;
+      border-radius: 6px;
+      width: 100%;
+    }
+
+    .copy-btn {
+      margin-top: 6px;
+      background: #111;
+      color: gold;
+      border: 1px solid gold;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .copy-btn:hover {
+      background: gold;
+      color: #111;
+    }
+
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 10px gold; }
+      50% { text-shadow: 0 0 20px gold; }
+      100% { text-shadow: 0 0 10px gold; }
+    }
+
+    /* Ripple effect */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.6);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    .coming-soon {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    /* Toast Notification */
+    .toast {
+      visibility: hidden;
+      min-width: 200px;
+      background: gold;
+      color: #111;
+      text-align: center;
+      border-radius: 8px;
+      padding: 10px;
+      position: fixed;
+      z-index: 1000;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px gold;
+      font-weight: bold;
+    }
+
+    .toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+      from { bottom: 0; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+
+    @keyframes fadeout {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: 0; opacity: 0; }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #222;
+      border: 2px solid gold;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 600px;
+      color: #fff;
+      box-shadow: 0 0 20px gold;
+      animation: bounceIn 0.6s ease;
+      text-align: left;
+    }
+
+    .modal-content h3 {
+      color: gold;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      background: gold;
+      color: #111;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      float: right;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Choose Your Payment Method</h2>
+
+  <div class="payment-options">
+    <!-- PayPal -->
+    <div class="payment-btn" onclick="openModal('paypalModal')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal Logo">
+      Pay with PayPal
+    </div>
+
+  <!-- Airtel Money -->
+<div class="payment-btn" onclick="openModal('airtelModal')">
+  <img src="C:/Users/OBIDIENCE/Downloads/airtel-logo.png" alt="Airtel Logo">
+  Pay with Airtel Money
+</div>
+
+<!-- Airtel Modal -->
+<div class="modal" id="airtelModal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeModal('airtelModal')">Close</button>
+    <h3>Pay with Airtel Money</h3>
+    
+    <!-- QR Code -->
+    <p>Scan this QR code to send money:</p>
+    <img src="C:/Users/OBIDIENCE/Downloads/airtel-qr.png" alt="Airtel Money QR Code" style="width:200px; margin:10px auto; display:block; border:2px solid gold; border-radius:8px; box-shadow:0 0 12px gold;">
+    
+    <!-- Mobile Number -->
+    <p>Or send payment directly to:</p>
+    <p><strong>Number:</strong> +260978262226</p>
+    <button class="copy-btn" onclick="copyTextDirect('+260978262226')">Copy Number</button>
+    
+    <!-- Instructions -->
+    <p>Steps:</p>
+    <ul>
+      <li>Open Airtel Money app.</li>
+      <li>Select “Send Money”.</li>
+      <li>Enter the number above or scan the QR code.</li>
+      <li>Confirm payment to Malama+ Bank escrow.</li>
+    </ul>
+  </div>
+</div>
+ 
+
+    <!-- FNB Bank -->
+    <div class="payment-btn" onclick="openModal('fnbModal')">
+      <img src="C:\Users\OBIDIENCE\Downloads\fnb-first-national-bank-new-20222097.logowik.com.webp" alt="FNB Logo">
+      Pay with FNB Bank
+    </div>
+
+    <!-- Coming Soon -->
+    <div class="payment-btn coming-soon">
+      <img src="C:\Users\OBIDIENCE\Downloads\OIP.jpg" alt="Visa Logo">
+      Visa / Mastercard<br>
+      <small>(Coming Soon)</small>
+    </div>
+
+    <div class="payment-btn coming-soon">
+      <img src="C:\Users\OBIDIENCE\Downloads\OIP.webp" alt="Crypto Logo">
+      Crypto Payments<br>
+      <small>(Coming Soon)</small>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">Copied!</div>
+
+  <!-- Modals -->
+  <div class="modal" id="paypalModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('paypalModal')">Close</button>
+      <h3>Pay with PayPal</h3>
+      <p>1. Click the PayPal button to redirect to checkout.</p>
+      <p>2. Log in with your PayPal account.</p>
+      <p>3. Confirm payment to Malama+ Bank escrow.</p>
+      <p>4. Funds are held until delivery is confirmed.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="airtelModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('airtelModal')">Close</button>
+      <h3>Pay with Airtel Money</h3>
+      <p>Send payment to:</p>
+      <p><strong>Number:</strong> +260978262226</p>
+      <button class="copy-btn" onclick="copyTextDirect('+260978262226')">Copy Number</button>
+      <p>Steps:</p>
+      <ul>
+        <li>Open Airtel Money app.</li>
+        <li>Select “Send Money”.</li>
+        <li>Enter the number above.</li>
+        <li>Confirm payment to Malama+ Bank escrow.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="modal" id="fnbModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('fnbModal')">Close</button>
+      <h3>Pay with FNB Bank</h3>
+      <p><strong>Account:</strong> Lifestrt Student</p>
+      <p>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malama+ Bank Gateway</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .bank-btn {
+      display: inline-block;
+      margin: 10px;
+      text-decoration: none;
+      background: gold;
+      color: #111;
+      padding: 12px 24px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px gold;
+      transition: all 0.3s ease;
+    }
+
+    .bank-btn:hover {
+      background: #fff;
+      color: gold;
+      transform: translateY(-3px);
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      color: gold;
+      text-shadow: 0 0 10px gold;
+      animation: glowPulse 2s infinite;
+      margin-bottom: 30px;
+    }
+
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 10px gold; }
+      50% { text-shadow: 0 0 20px gold; }
+      100% { text-shadow: 0 0 10px gold; }
+    }
+
+    .payment-options {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .payment-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: gold;
+      color: #111;
+      padding: 20px;
+      font-size: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 12px gold;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      min-width: 240px;
+      max-width: 280px;
+    }
+
+    .payment-btn img {
+      height: 40px;
+      width: auto;
+      margin-bottom: 10px;
+    }
+
+    .payment-btn:hover {
+      background: #fff;
+      color: gold;
+      transform: translateY(-3px);
+    }
+
+    .details {
+      font-size: 0.9rem;
+      margin-top: 8px;
+      color: #333;
+      background: #fff;
+      padding: 6px;
+      border-radius: 6px;
+      width: 100%;
+    }
+
+    .copy-btn {
+      margin-top: 6px;
+      background: #111;
+      color: gold;
+      border: 1px solid gold;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .copy-btn:hover {
+      background: gold;
+      color: #111;
+    }
+
+    .coming-soon {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    /* Toast Notification */
+    .toast {
+      visibility: hidden;
+      min-width: 200px;
+      background: gold;
+      color: #111;
+      text-align: center;
+      border-radius: 8px;
+      padding: 10px;
+      position: fixed;
+      z-index: 1000;
+      left: 50%;
+      bottom: 30px;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px gold;
+      font-weight: bold;
+    }
+
+    .toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+      from { bottom: 0; opacity: 0; }
+      to { bottom: 30px; opacity: 1; }
+    }
+
+    @keyframes fadeout {
+      from { bottom: 30px; opacity: 1; }
+      to { bottom: 0; opacity: 0; }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #222;
+      border: 2px solid gold;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 600px;
+      color: #fff;
+      box-shadow: 0 0 20px gold;
+      animation: bounceIn 0.6s ease;
+      text-align: left;
+    }
+
+    .modal-content h3 {
+      color: gold;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      background: gold;
+      color: #111;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      float: right;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    /* Scroll Reveal */
+    .proceed-section {
+      margin-top: 60px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    .proceed-section.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Learn More + Proceed Buttons -->
+  <a href="learn-more.html" class="bank-btn">Learn More</a>
+  <a href="#proceed" class="bank-btn">Proceed</a>
+
+  <!-- Proceed Section -->
+  <section id="proceed" class="proceed-section">
+    <h2>Proceed to Payment</h2>
+
+    <div class="payment-options">
+      <!-- PayPal -->
+      <div class="payment-btn" onclick="openModal('paypalModal')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal Logo">
+        Pay with PayPal
+      </div>
+
+      <!-- Airtel Money -->
+      <div class="payment-btn" onclick="openModal('airtelModal')">
+        <img src="PATH_TO_AIRTEL_LOGO.png" alt="Airtel Money Logo">
+        Pay with Airtel Money
+      </div>
+
+      <!-- FNB Bank -->
+      <div class="payment-btn" onclick="openModal('fnbModal')">
+        <img src="PATH_TO_FNB_LOGO.png" alt="FNB Logo">
+        Pay with FNB Bank
+      </div>
+
+      <!-- Coming Soon -->
+      <div class="payment-btn coming-soon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa Logo">
+        Visa / Mastercard<br>
+        <small>(Coming Soon)</small>
+      </div>
+
+      <div class="payment-btn coming-soon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Bitcoin_logo.svg" alt="Crypto Logo">
+        Crypto Payments<br>
+        <small>(Coming Soon)</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">Copied!</div>
+
+  <!-- Modals -->
+  <div class="modal" id="paypalModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('paypalModal')">Close</button>
+      <h3>Pay with PayPal</h3>
+      <p>1. Click the PayPal button to redirect to checkout.</p>
+      <p>2. Log in with your PayPal account.</p>
+      <p>3. Confirm payment to Malama+ Bank escrow.</p>
+      <p>4. Funds are held until delivery is confirmed.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="airtelModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('airtelModal')">Close</button>
+      <h3>Pay with Airtel Money</h3>
+      <p>Send payment to:</p>
+      <p><strong>Number:</strong> +260978262226</p>
+      <button class="copy-btn" onclick="copyTextDirect('+260978262226')">Copy Number</button>
+      <p>Steps:</p>
+      <ul>
+
