@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vision | Malama+</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #0d0d0d;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    /* Hero section with parallax background */
+    header {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('images/jusice9999.jpeg') no-repeat center center/cover;
+      background-attachment: fixed; /* parallax */
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+
+    header h1 {
+      position: relative;
+      z-index: 2;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #FFD700;
+      text-shadow: 0 0 18px rgba(255, 215, 0, 0.8);
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeInDown 1.5s ease forwards;
+    }
+
+    nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeInUp 2s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    nav a {
+      padding: 12px 28px;
+      background-color: rgba(54,69,79,0.85);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 999px;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #000000;
+      transform: scale(1.08);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    main p {
+      font-size: 1.3rem;
+      color: #e0e0e0;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 1.5s;
+    }
+
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: #FFD700;
+      margin: 0 auto 40px;
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .divider.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111111;
+      font-size: 0.9rem;
+      color: #aaaaaa;
+      border-top: 1px solid rgba(255, 215, 0, 0.3);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1.2s ease;
+    }
+
+    footer.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Vision</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="capsule.html">Capsule</a>
+      <a href="cart.html">Cart</a>
+      <a href="join.html">Join</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="divider"></div>
+    <p>
+      Malama+ is more than fashion. It is a spiritual awakening, 
+      a movement of voices, and a capsule of truth carried through art.
+    </p>
+    <div class="divider"></div>
+  </main>
+
+  <footer>
+    © 2026 Malama+ | Crafted with vision and purpose
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const revealElements = document.querySelectorAll('.divider, footer');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
