@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malama+ Bank Gateway</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    /* Bank Section */
+    .bank-section {
+      background: #111;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .bank-heading {
+      font-family: 'Great Vibes', cursive; /* Signature-style font */
+      font-size: 2.5rem;
+      color: gold;
+      text-shadow: 0 0 10px gold;
+      margin-bottom: 10px;
+      animation: glowPulse 2s infinite;
+    }
+
+    .bank-tagline {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #ddd;
+    }
+
+    .bank-card, .bank-mission, .bank-flow {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid gold;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .bank-card:hover, .bank-mission:hover, .bank-flow:hover {
+      transform: scale(1.03);
+    }
+
+    .bank-subheading {
+      color: gold;
+      margin-bottom: 15px;
+    }
+
+    .bank-steps {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bank-steps li {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .step-icon {
+      margin-right: 8px;
+      color: gold;
+    }
+
+    .bank-btn {
+      position: relative;
+      overflow: hidden;
+      background: gold;
+      color: #111;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 10px gold;
+      transition: all 0.3s ease;
+    }
+
+    .bank-btn:hover {
+      background: #fff;
+      color: gold;
+      transform: translateY(-3px);
+    }
+
+    /* Glow pulse animation */
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 10px gold; }
+      50% { text-shadow: 0 0 20px gold; }
+      100% { text-shadow: 0 0 10px gold; }
+    }
+
+    /* Ripple effect */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 215, 0, 0.6);
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* Transaction Flow */
+    .flow-steps {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .flow-step {
+      flex: 1;
+      margin: 0 10px;
+      padding: 15px;
+      border: 1px solid gold;
+      border-radius: 8px;
+      background: rgba(255, 215, 0, 0.1);
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+
+    .flow-step h4 {
+      color: gold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bank Section -->
+  <section id="bank" class="bank-section">
+    <div class="bank-container">
+      <h2 class="bank-heading">Malama+ Bank Gateway</h2>
+      <p class="bank-tagline">
+        A worldwide repository ensuring safe transactions between buyers and sellers.
+      </p>
+
+      <div class="bank-card">
+        <h3 class="bank-subheading">How It Works</h3>
+        <ul class="bank-steps">
+          <li><span class="step-icon">💰</span> Buyer deposits funds securely.</li>
+          <li><span class="step-icon">🔒</span> Funds held until product/service is delivered.</li>
+          <li><span class="step-icon">✅</span> Seller receives payment after confirmation.</li>
+        </ul>
+      </div>
+
+      <div class="bank-mission">
+        <h3 class="bank-subheading">Our Mission</h3>
+        <p>
+          Malama+ Bank eliminates scams by acting as a trusted middleman. 
+          Buyers worldwide can shop online without fear of losing money.
+        </p>
+      </div>
+
+      <div class="bank-flow">
+        <h3 class="bank-subheading">Transaction Flow</h3>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <h4>Step 1</h4>
+            <p>Deposit funds into Malama+ Bank.</p>
+          </div>
+          <div class="flow-step">
+            <h4>Step 2</h4>
+            <p>Funds held securely until delivery.</p>
+          </div>
+          <div class="flow-step">
+            <h4>Step 3</h4>
+            <p>Release payment after confirmation.</p>
+          </div>
+        </div>
+      </div>
+       <a href="learn-more.html" class="bank-btn">Learn More</a>
+    </div>
+  </section>
+
+  <script>
+    document.querySelector('.bank-btn').addEventListener('click', function(e) {
+      let ripple = document.createElement('span');
+      ripple.classList.add('ripple');
+      this.appendChild(ripple);
+
+      let rect = this.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+
+      setTimeout(() => { ripple.remove(); }, 600);
+    });
+  </script>
+
+</body>
+</html>

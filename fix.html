@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malama+ Work Catalogue</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      background: #111;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .portfolio-heading {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 2.5em;
+      color: gold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px goldenrod, 0 0 20px #FFD700;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px goldenrod; }
+      to { text-shadow: 0 0 20px #FFD700, 0 0 30px gold; }
+    }
+
+    .portfolio-intro {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    /* Catalogue Grid */
+    .catalogue-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+
+    .catalogue-card {
+      background: #222;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px gold, 0 0 30px goldenrod;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .catalogue-card h3 {
+      color: gold;
+      margin-bottom: 10px;
+      font-size: 1.4em;
+      text-shadow: 0 0 10px goldenrod;
+    }
+
+    .catalogue-card p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .catalogue-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px #FFD700, 0 0 50px gold;
+    }
+
+    /* Pricing List */
+    .pricing {
+      list-style: none;
+      padding: 0;
+      margin-top: 15px;
+      text-align: left;
+    }
+
+    .pricing li {
+      margin: 8px 0;
+      font-size: 1em;
+      color: #ddd;
+    }
+
+    .pricing strong {
+      color: gold;
+    }
+
+    /* Call Button */
+    .call-btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: gold;
+      color: #111;
+      font-weight: bold;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      box-shadow: 0 0 20px gold, 0 0 40px goldenrod;
+    }
+
+    .call-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #FFD700, 0 0 60px gold;
+    }
+
+    /* Portfolio Image Styling */
+    .portfolio-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      box-shadow: 0 0 15px gold, 0 0 30px goldenrod;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .portfolio-img:hover {
+      transform: rotate(360deg);
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-img {
+        width: 60px;
+        height: 60px;
+        top: 10px;
+        left: 10px;
+        box-shadow: 0 0 10px gold, 0 0 20px goldenrod;
+      }
+    }
+
+    /* Showcase Gallery */
+    .showcase {
+      padding: 60px 20px;
+      background: #000;
+      text-align: center;
+    }
+
+    .showcase h2 {
+      font-size: 2.2em;
+      color: gold;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px goldenrod;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .showcase-grid img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 15px gold, 0 0 30px goldenrod;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+
+    .showcase-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #FFD700, 0 0 50px gold;
+    }
+
+    /* Image Modal Styling */
+    #imageModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+    }
+
+    .modal-img {
+      display: block;
+      margin: 40px auto;
+      max-width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 0 25px gold, 0 0 50px goldenrod;
+    }
+
+    .modal-caption {
+      text-align: center;
+      color: gold;
+      font-size: 1.2em;
+      margin-top: 15px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: gold;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 50px;
+      color: gold;
+      cursor: pointer;
+      user-select: none;
+      padding: 10px;
+    }
+
+    .nav-arrow.left { left: 20px; }
+    .nav-arrow.right { right: 20px; }
+  </style>
+</head>
+<body>
+
+<!-- Shop Catalogue Section -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-container">
+    <img src="C:\Users\OBIDIENCE\Desktop\malama\myself111.jpeg" alt="Shepherd Malama" class="portfolio-img">
+
+    <h2 class="portfolio-heading">Malama+ Work Catalogue</h2>
+    <p class="portfolio-intro">
+      LET’S FIX IT >>> <br>
+      I am <strong>Shepherd Malama</strong> — Full Developer, Programmer, Software & Hardware Engineer, 
+      IT Specialist, and Fashion Model. With a Diploma in Computer System Engineering from 
+      <em>Northern Technical College</em>, I deliver professional services, projects, and contracts 
+      through negotiation-based pricing.
+    </p>
+
+    <!-- Catalogue Grid -->
+    <div class="catalogue-grid">
+      <div class="catalogue-card">
+        <h3>🔧 Hardware Repair</h3>
+        <p>Diagnostics, component replacement, and performance restoration.</p>
+        <ul class="pricing">
+          <li><strong>Basic:</strong> Quick fixes & cleaning</li>
+          <li><strong>Standard:</strong> Full diagnostics + repair</li>
+          <li><strong>Premium:</strong> Advanced repair + upgrades</li>
+        </ul>
+      </div>
+      <div class="catalogue-card">
+        <h3>🖥️ Troubleshooting</h3>
+        <p>System checks, error resolution, and optimization.</p>
+        <ul class="pricing">
+          <li><strong>Basic:</strong> Error scan & report</li>
+          <li><strong>Standard:</strong> Issue resolution + tune-up</li>
+          <li><strong>Premium:</strong> Deep troubleshooting + performance boost</li>
+        </ul>
+      </div>
+      <div class="catalogue-card">
+        <h3>💻 Software Engineering</h3>
+        <p>Custom apps, responsive websites, and modular solutions.</p>
+        <ul class="pricing">
+          <li><strong>Basic:</strong> Small scripts & fixes</li>
+          <li><strong>Standard:</strong> Full website/app build</li>
+          <li><strong>Premium:</strong> Enterprise-grade scalable systems</li>
+        </ul>
+      </div>
+      <div class="catalogue-card">
+        <h3>📡 IT
+
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/260978262226?text=Hello%20Shepherd%2C%20I%20want%20to%20hire%20your%20services" 
+   class="whatsapp-float" target="_blank">
+   💬 Chat on WhatsApp
+</a>
+
+<style>
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  width: auto;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 15px #25D366, 0 0 30px #128C7E;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #25D366, 0 0 50px #128C7E;
+}
+</style>
+

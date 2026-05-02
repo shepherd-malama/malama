@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Join | Malama+</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: #0d0d0d;
+      color: #f5f5f5;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+      background: linear-gradient(135deg, #1a1a1a, #000000);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #FFD700;
+      text-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+      margin-bottom: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    nav a {
+      padding: 12px 28px;
+      background-color: #36454F;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 999px;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #000000;
+      transform: scale(1.08);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+    }
+
+    main {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    main p {
+      font-size: 1.25rem;
+      margin-bottom: 40px;
+      color: #e0e0e0;
+    }
+
+    .join-options {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #25D366;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(37, 211, 102, 0.6);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #FFD700;
+    }
+
+    input[type="email"] {
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #36454F;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #000000;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111111;
+      font-size: 0.9rem;
+      color: #aaaaaa;
+      border-top: 1px solid rgba(255, 215, 0, 0.3);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Join the Movement</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="vision.html">Vision</a>
+      <a href="capsule.html">Capsule</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>Be part of Malama+. Add your voice to the awakening.</p>
+    <div class="join-options">
+      <!-- WhatsApp direct join -->
+      <a href="https://wa.me/260978262226?text=Hello%20Malama%2B%2C%20I%20want%20to%20join%20the%20movement." 
+         class="whatsapp-btn" target="_blank">
+         Join via WhatsApp
+      </a>
+
+      <!-- Email option -->
+<form id="joinForm" action="https://formspree.io/malama.ioshepherd" method="POST">
+  <label for="email">Or provide your email address:</label>
+  <input type="email" id="email" name="email" placeholder="your@email.com" required>
+  <button type="submit">Join with Email</button>
+</form>
+
+<!-- Toast confirmation -->
+<div id="toast">✅ Thank you for joining Malama+</div>
+
+<style>
+  #toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #FFD700;
+    color: #000;
+    text-align: center;
+    border-radius: 999px;
+    padding: 16px;
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    bottom: 30px;
+    font-weight: bold;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+  }
+
+  #toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('joinForm');
+  const toast = document.getElementById('toast');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault(); // prevent default reload
+    const data = new FormData(form);
+
+    // Send to Formspree
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      // Show toast
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 4000);
+      form.reset();
+    } else {
+      alert("Oops! Something went wrong. Please try again.");
+    }
+  });
+</script>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Malama+ | Crafted with vision and purpose
+  </footer>
+</body>
+</html>

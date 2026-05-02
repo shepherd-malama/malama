@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malama+ Creative Sanctuary</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: #f5d76e;
+    }
+
+    /* Hero Section */
+    .sanctuary {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .signature-heading {
+      font-family: 'Great Vibes', cursive; /* Signature-style font */
+      font-size: 3rem;
+      text-shadow: 0 0 15px #f5d76e;
+      animation: glow 2s infinite alternate;
+    }
+
+    .tagline {
+      font-size: 1.5rem;
+      border-bottom: 2px solid #f5d76e;
+      display: inline-block;
+      animation: ripple 3s infinite;
+    }
+
+    .invitation p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-top: 20px;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .gallery-item {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #f5d76e;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #f5d76e;
+    }
+
+    .creator {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    .upload-btn {
+      background: #333;
+      color: #f5d76e;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      margin-top: 40px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .upload-btn:hover {
+      background: #444;
+      box-shadow: 0 0 15px #f5d76e;
+    }
+
+    /* WhatsApp Floating Icon */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 0 15px #f5d76e;
+      animation: bounce 2s infinite;
+    }
+
+    /* Supporter Wall */
+    .supporter-wall {
+      background: #111;
+      color: #f5d76e;
+      text-align: center;
+      padding: 60px 20px;
+      margin-top: 50px;
+    }
+
+    .wall-heading {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      text-shadow: 0 0 15px #f5d76e;
+      animation: glow 2s infinite alternate;
+    }
+
+    .wall-intro {
+      font-size: 1.2rem;
+      margin: 20px auto;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .wall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .supporter {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #f5d76e;
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .supporter:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #f5d76e;
+    }
+
+    .add-supporter-form {
+      margin-top: 30px;
+    }
+
+    .add-supporter-form input {
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      margin-right: 10px;
+      width: 250px;
+    }
+
+    .add-supporter-btn {
+      background: #333;
+      color: #f5d76e;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .add-supporter-btn:hover {
+      background: #444;
+      box-shadow: 0 0 15px #f5d76e;
+    }
+
+    /* Animations */
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #f5d76e; }
+      to { text-shadow: 0 0 25px #f5d76e; }
+    }
+
+    @keyframes ripple {
+      0% { border-color: #f5d76e; }
+      50% { border-color: #fff; }
+      100% { border-color: #f5d76e; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sanctuary Section -->
+  <section class="sanctuary">
+    <div class="hero">
+      <h1 class="signature-heading">Malama+ Creative Sanctuary</h1>
+      <h3 class="tagline">Truth Carriers • Light Bearers • Divine Souls</h3>
+    </div>
+
+    <div class="invitation">
+      <p>
+        Welcome to the Malama+ Creative Sanctuary.<br>
+        This is more than a showroom—it is a gathering of souls.<br>
+        Here, truth carriers, light bearers, and chosen ones unite.<br>
+        Every work shared is a spark of awakening.<br>
+        Join us. Collaborate. Carry the light.
+      </p>
+    </div>
+
+    <!-- Collaborative Gallery -->
+    <div class="gallery">
+      <div class="gallery-item scroll-reveal">
+        <img src="placeholder1.jpg" alt="Collaborator Work">
+        <audio controls>
+          <source src="audio1.mp3" type="audio/mpeg">
+        </audio>
+        <p class="creator">Creator Name • Divine Message</p>
+      </div>
+      <div class="gallery-item scroll-reveal">
+        <img src="placeholder1.jpg" alt="Collaborator Work">
+        <audio controls>
+          <source src="audio/mpeg" type="audio/mpeg">
+        </audio>
+        <p class="creator">Creator Name • Divine Message</p>
+      </div>
+    </div>
+
+    <!-- Upload Portal -->
+    <button class="upload-btn">Share Your Work</button>
+
+    <!-- Floating WhatsApp Icon -->
+    <a href="https://wa.me/260978262226" class="whatsapp-float">WhatsApp</a>
+  </section>
+
+  <!-- Supporter Wall -->
+  <section class="supporter-wall">
+    <h2 class="wall-heading">Supporter Wall</h2>
+    <p class="wall-intro">
+      A living mural of souls connected to Malama+. Each name shines as a spark of truth.
+    </p>
+
+    <div class="wall-grid" id="supporterGrid">
+      <div class="supporter scroll-reveal">Shepherd • Light Bearer</div>
+      <div class="supporter scroll-reveal">Divine Soul • Truth Carrier</div>
+      <div class="supporter scroll-reveal">Chosen One • Awakening</div>
+      <div class="supporter scroll-reveal">Supporter • Connected</div>
+    </div>
+
+    <!-- Add Your Name Form -->
+    <form class="add-supporter-form" onsubmit="addSupporter(event)">
+      <input type="text" id="supporterName" placeholder="Enter your name/message" required>
+      <button type="submit" class="add-supporter-btn">Add Your Name</button>
+    </form>
+  </section>
+
+  <script>
+    function addSupporter(event) {
+      event.preventDefault();
+      const nameInput = document.getElementById('supporterName');
+      const supporterGrid = document.getElementById('supporterGrid');
+      const newDiv = document.createElement('div');
+      newDiv.className = 'supporter scroll-reveal';
+      newDiv.textContent = nameInput.value;
+      supporterGrid.appendChild(newDiv);
+      nameInput.value = '';
+    }
+  </script>
+
+</body>
+</html>

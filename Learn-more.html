@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learn More - Malama+ Bank</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .learn-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: gold;
+      color: #111;
+      padding: 14px 30px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 12px gold;
+      transition: all 0.3s ease;
+    }
+
+    .learn-btn:hover {
+      background: #fff;
+      color: gold;
+      transform: translateY(-3px);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #222;
+      border: 2px solid gold;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 700px;
+      color: #fff;
+      box-shadow: 0 0 20px gold;
+      animation: bounceIn 0.6s ease;
+      text-align: left;
+    }
+
+    .modal-content h3 {
+      color: gold;
+      margin-bottom: 15px;
+    }
+
+    .modal-content p {
+      margin: 10px 0;
+      line-height: 1.5;
+    }
+
+    .close-btn {
+      background: gold;
+      color: #111;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      float: right;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Standalone Learn More Button -->
+  <a href="#learnMoreModal" class="learn-btn" id="learnMoreLink">Learn More</a>
+
+  <!-- Modal -->
+  <div class="modal" id="learnMoreModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">Close</button>
+      <h3>About Malama+ Bank Gateway</h3>
+      <p><strong>Detailed Escrow Process:</strong> Funds are deposited, held securely, and released only after delivery is confirmed.</p>
+      <p><strong>Security & Transparency:</strong> Transactions are encrypted, tracked, and verified to prevent fraud.</p>
+      <p><strong>Global Reach:</strong> Designed for worldwide use, supporting cross-border transactions and multiple currencies.</p>
+      <p><strong>Buyer Benefits:</strong> Peace of mind, scam protection, and easy dispute resolution.</p>
+      <p><strong>Seller Benefits:</strong> Guaranteed payment, trust-building, and faster adoption of online commerce.</p>
+      <p><strong>Community Impact:</strong> Supporting honest business and empowering entrepreneurs across the globe.</p>
+      <p><strong>Future Vision:</strong> Integration with Malama+ marketplace, mobile notifications, and blockchain transparency.</p>
+    </div>
+  </div>
+
+  <script>
+    // Modal open/close logic
+    const learnMoreLink = document.getElementById('learnMoreLink');
+    const modal = document.getElementById('learnMoreModal');
+    const closeModal = document.getElementById('closeModal');
+
+    learnMoreLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      modal.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
+<!-- Proceed section -->
+<section id="proceed" class="proceed-section">
+  <h2>Proceed to Payment</h2>
+  <!-- Insert the payment options code here -->
+  <!-- Learn More button -->
+<a href="Proceed To Payment.html" class="bank-btn">Proceed To Payment</a>
+</section>
+
+

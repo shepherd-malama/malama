@@ -1,0 +1,238 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Malama+</title>
+  <style>
+    h1 {
+      text-align: center;       /* centers the heading */
+      font-family: Arial, sans-serif;
+      color: #36454F;           /* charcoal gray for consistency */
+      margin-bottom: 10px;
+    }
+
+    .divider {
+      width: 60%;               /* shorter than full width for balance */
+      margin: 0 auto 20px auto; /* centers the line */
+      border: none;
+      border-top: 2px solid #36454F; /* charcoal gray divider */
+      box-shadow: 0 0 8px rgba(54,69,79,0.6); /* subtle glow effect */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    
+    <hr class="divider">
+  </header>
+</body>
+</html>
+   <style>
+.top-right {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;        /* full circle shape */
+  background-color: #FFFFFF; /* white background */
+  object-fit: cover;         /* ensures image fills the circle neatly */
+  position: absolute;
+  top: 20px;
+  right: 20px;               /* positions image at top-right corner */
+  border: 5px solid transparent; /* base border transparent */
+  background-image: linear-gradient(#FFFFFF, #FFFFFF), 
+                    linear-gradient(90deg, #36454F, #000000, #36454F); /* gradient ring */
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 0 0 15px rgba(54,69,79,0.6); /* subtle glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  animation: borderflow 4s linear infinite; /* flowing gradient animation */
+}
+
+.top-right:hover {
+  transform: scale(1.08); /* gentle pulse zoom */
+  box-shadow: 0 0 25px rgba(54,69,79,0.9); /* brighter glow on hover */
+}
+
+/* Ripple effect */
+.top-right:active::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(54,69,79,0.4); /* charcoal ripple */
+  animation: ripple 0.6s ease-out;
+}
+
+.top-right:active {
+  animation: rotate 0.6s ease-out; /* smooth spin on click */
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) scale(1.08);
+  }
+  to {
+    transform: rotate(360deg) scale(1.08);
+  }
+}
+
+@keyframes borderflow {
+  0% {
+    background-image: linear-gradient(#FFFFFF, #FFFFFF), 
+                      linear-gradient(90deg, #36454F, #000000, #36454F);
+  }
+  100% {
+    background-image: linear-gradient(#FFFFFF, #FFFFFF), 
+                      linear-gradient(450deg, #36454F, #000000, #36454F);
+  }
+}
+</style>
+
+
+<style>
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+nav a {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #36454F; /* charcoal gray */
+  color: #FFFFFF;            /* white text */
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 999px;      /* purely elliptical pill shape */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #000000; /* deep black hover */
+  transform: scale(1.05);    /* subtle zoom for readability */
+}
+</style>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="Hub.html">Hub</a>
+  <a href="Bank.html">Bank</a>
+   <a href="fix.html">Let's Fix it</a>
+   <a href="Marketplace.html">Marketplace</a>
+ <a href="Services.html">Services</a>
+</nav>
+
+
+       </header>
+
+  <main>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Malama+</title>
+  <style>
+    h1 {
+      text-align: center;       /* centers the heading */
+      font-family: Arial, sans-serif;
+      color: #36454F;           /* charcoal gray for consistency */
+      margin-bottom: 10px;
+    }
+
+    .divider {
+      width: 60%;               /* shorter than full width for balance */
+      margin: 0 auto 20px auto; /* centers the line */
+      border: none;
+      border-top: 2px solid #36454F; /* charcoal gray divider */
+      box-shadow: 0 0 8px rgba(54,69,79,0.6); /* subtle glow effect */
+    }
+
+    .contact-info {
+      font-family: Arial, sans-serif;
+      line-height: 1.8;
+      max-width: 450px;
+      margin: 20px auto;          /* centers the box */
+      padding: 20px;
+      border: 2px solid #36454F;  /* charcoal gray border */
+      border-radius: 12px;
+      background: #FFFFFF;        /* clean white background */
+      box-shadow: 0 0 12px rgba(54,69,79,0.6); /* glowing border effect */
+      text-align: center;         /* centers text and links */
+      opacity: 0;                 /* start invisible */
+      animation: fadeIn 1.2s ease forwards; /* fade-in animation */
+    }
+
+    .contact-info:hover {
+      box-shadow: 0 0 20px rgba(54,69,79,0.9); /* stronger glow on hover */
+    }
+
+    .contact-info p {
+      margin: 12px 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .contact-info .icon {
+      margin-right: 8px;
+      font-size: 18px;
+      color: #36454F; /* charcoal gray accent */
+    }
+
+    .contact-info a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #36454F; /* charcoal gray hover */
+      text-decoration: underline;
+      text-shadow: 0 0 8px rgba(54,69,79,0.6); /* glow effect */
+    }
+
+    .contact-info hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 15px 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contact Us</h1>
+    <hr class="divider">
+  </header>
+
+  <div class="contact-info">
+    <p><span class="icon">📞</span><strong>Phone:</strong> <a href="tel:+260978262226">+260978262226</a></p>
+    <p><span class="icon"></span><strong>WhatsApp:</strong> <a href="https://wa.me/260978262226" target="_blank">+260978262226</a></p>
+    <p><span class="icon">✉️</span><strong>Email:</strong> <a href="mailto:shepherdmalama@gmail.com">shepherdmalama@gmail.com</a></p>
+    <hr>
+    <p><span class="icon">▶️</span><strong>YouTube:</strong> <a href="https://www.youtube.com/@shepherd-M777" target="_blank">MALAMA Channel</a></p>
+    <p><span class="icon">📸</span><strong>Instagram:</strong> <a href="https://www.instagram.com/mal-malama" target="_blank">@mal-malama</a></p>
+    <p><span class="icon">📘</span><strong>Facebook:</strong> <a href="https://www.facebook.com/mal.malama" target="_blank">Mal Malama</a></p>
+  </div>
+</body>
+</html>
