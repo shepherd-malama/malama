@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home | Malama+</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #111; /* dark background */
+      color: #fff;
+    }
+    header {
+      background-color: #36454F; /* deep charcoal */
+      color: #FFFFFF;            /* white text */
+      text-align: center;
+      padding: 30px 20px;
+    }
+    header h1 {
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    nav a {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #36454F; /* charcoal gray */
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 999px;      /* oval pill shape */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    nav a:hover {
+      background-color: #000000; /* deep black hover */
+      transform: scale(1.05);
+    }
+    main {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    footer {
+      background-color: #36454F; /* deep charcoal */
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    .social-icons {
+      margin-top: 10px;
+    }
+    .social-icons svg {
+      width: 28px;
+      height: 28px;
+      margin: 0 6px;
+      fill: #FFD700; /* glowing gold */
+      transition: transform 0.2s ease, fill 0.3s ease;
+      vertical-align: middle;
+    }
+    .social-icons svg:hover {
+      transform: scale(1.2);
+      fill: #FFFFFF; /* invert on hover */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <header>
+    <h1>Malama</h1>
+    <h2>The Awakening Movement</h2>
+    <p><em>"Light bearer, truth carrier, gatekeeper."</em></p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="vision.html">Vision</a>
+      <a href="capsule.html">Capsule</a>
+      <a href="cart.html">Cart</a>
+      <a href="Shop.html">Shop</a>
+      <a href="join.html">Join</a>
+      <a href="contact.html">Contact</a>
+       <a href="Portfolio.html">Portfolio</a>
+    </nav>
+    <hr>
+  </header>
+
+  <!-- Home Ritual -->
+  <main>
+    <h3>Your Awakening</h3>
+    <p><em>"Your journey begins here.  
+    Each step taken is a voice added to the awakening."</em></p>
+
+    <p>Explore our vision, join the movement, and discover capsules that embody conviction and creativity.</p>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer>
+    <hr>
+     <!-- Gallery -->
+  <div class="gallery">
+   <style>
+.gallery-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;             
+  object-fit: cover;              
+  transition: transform 0.8s ease-in-out, 
+              box-shadow 0.8s ease-in-out; 
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+/* Spin + Glow (desktop default) */
+.gallery-item img:hover {
+  transform: rotate(360deg);      
+  box-shadow: 0 0 20px gold, 
+              0 0 40px goldenrod, 
+              0 0 60px #FFD700;   
+}
+
+/* Ripple aura layers */
+.gallery-item img::after,
+.gallery-item img::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: -1;
+}
+
+/* Gold ripple */
+.gallery-item img::after {
+  box-shadow: 0 0 15px gold;
+}
+
+/* White ripple */
+.gallery-item img::before {
+  box-shadow: 0 0 15px white;
+}
+
+/* Default ripple speed (desktop) */
+.gallery-item img:hover::after {
+  animation: rippleGold 2s infinite;
+}
+.gallery-item img:hover::before {
+  animation: rippleWhite 2s infinite;
+}
+
+/* Mobile: faster ripple + softer glow */
+@media (max-width: 768px) {
+  .gallery-item img:hover {
+    box-shadow: 0 0 10px gold, 
+                0 0 20px goldenrod, 
+                0 0 30px #FFD700; /* softer glow */
+  }
+  .gallery-item img:hover::after {
+    animation: rippleGold 1.2s infinite;
+  }
+  .gallery-item img:hover::before {
+    animation: rippleWhite 1.2s infinite;
+  }
+}
+
+@keyframes rippleGold {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes rippleWhite {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+</style>
+
+<!-- Gallery -->
+<div class="gallery">
+  <div class="gallery-item apple show">
+    <img src="C:\Users\OBIDIENCE\Desktop\malama\Logo2.JPG" alt="Apple iPhone">
+  </div>
+</div>
+
+
+<!-- Shared Footer -->
+<footer>
+  <hr>
+  <p><em>"Awakening through art, one capsule at a time."</em></p>
+  <p>&copy; 2026 Malama+. All rights reserved.</p>
+  <p>Follow us on:</p>
+  <div class="social-icons">
+    <!-- YouTube -->
+    <a href="https://youtube.com/@shepherd-m777?si=t_qcnQMXxMjSExMY" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path d="M549.7 124.1c-6.3-23.7-24.9-42.3-48.6-48.6C465.3 64 288 64 288 64s-177.3 0-213.1 11.5c-23.7 6.3-42.3 24.9-48.6 48.6C16 159.9 16 256 16 256s0 96.1 10.3 131.9c6.3 23.7 24.9 42.3 48.6 48.6C110.7 448 288 448 288 448s177.3 0 213.1-11.5c23.7-6.3 42.3-24.9 48.6-48.6C560 352.1 560 256 560 256s0-96.1-10.3-131.9zM232 338V174l142 82-142 82z"/>
+      </svg>
+    </a>
+    <!-- Instagram -->
+    <a href="https://instagram.com/mal-malama" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M224 202.7c-31.4 0-57.3 25.9-57.3 57.3s25.9 57.3 57.3 57.3 57.3-25.9 57.3-57.3-25.9-57.3-57.3-57.3zm124.7-41c0 14.3-11.6 25.9-25.9 25.9s-25.9-11.6-25.9-25.9 11.6-25.9 25.9-25.9 25.9 11.6 25.9 25.9zm76.1 41c-1.7-35.7-9.9-67.3-36.2-93.6s-57.9-34.5-93.6-36.2c-37.1-2.1-148.4-2.1-185.5 0-35.7 1.7-67.3 9.9-93.6 36.2s-34.5 57.9-36.2 93.6c-2.1 37.1-2.1 148.4 0 185.5 1.7 35.7 9.9 67.3 36.2 93.6s57.9 34.5 93.6 36.2c37.1 2.1 148.4 2.1 185.5 0 35.7-1.7 67.3-9.9 93.6-36.2s34.5-57.9 36.2-93.6c2.1-37.1 2.1-148.4 0-185.5z"/>
+      </svg>
+    </a>
+    <!-- Facebook -->
+    <a href="https://facebook.com/malmalama" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+        <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S293.3 0 268.1 0c-73.1 0-121.1 44.38-121.1 124.72v70.62H86.41V288h60.59v224h92.66V288z"/>
+      </svg>
+    </a>
+    <!-- WhatsApp -->
+    <a href="https://wa.me/260978262226" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path d="M380.9 97.1C339-3.5 229.5-31.6 139.6 17.8 49.7 67.2 21.6 176.7 70.9 266.6l-26.2 95.6 98.1-25.8c89.9 49.3 199.4 21.2 249.8-68.7 50.4-89.9 22.3-199.4-68.7-249.8zm-97.6 246.5c-27.1 0-53.7-7.9-76.6-22.9l-5.5-3.5-45.3 11.9 12.1-44.7-3.6-5.6c-15.1-23-23-49.6-23-76.7 0-76.1 61.9-138 138-138 76.1 0 138 61.9 138 138 0 76.1-61.9 138-138 138z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+
+       </footer>
+
+</body>
+</html>
